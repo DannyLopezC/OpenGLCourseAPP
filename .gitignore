@@ -1,0 +1,81 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Archivos binarios y compilados
+bin/
+obj/
+
+# Configuraciones del usuario
+.vs/
+.idea/
+*.userprefs
+*.suo
+*.user
+*.log
+*.vscode/
+
+# Dependencias de paquetes
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+
+# Archivos temporales de MAUI
+Properties/launchSettings.json
+AppPackages/
+*.apk
+*.aab
+*.ipa
+
+# Archivos generados por Visual Studio
+*.vsix
+.vscode/
+*.dbmdl
+*.pdb
+*.pidb
+*.mdb
+*.ilk
+*.obj
+*.exp
+*.idb
+*.tlog
+*.log
+*.cache
+*.csproj.user
+*.csproj.core
+
+# Configuración de Mac y Android
+.DS_Store
+*.keystore
+*.xcuserstate
+*.xcworkspace/
