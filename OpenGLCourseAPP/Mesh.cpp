@@ -27,8 +27,8 @@ void Mesh::createMesh(GLfloat* vertices, unsigned int* indices, unsigned int num
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
 void Mesh::renderMesh()
