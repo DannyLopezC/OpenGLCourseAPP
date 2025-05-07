@@ -1,3 +1,5 @@
+#define STB_IMAGE_IMPLEMENTATION
+
 #include <stdio.h>
 #include <string.h>
 #include <cmath>
@@ -14,6 +16,7 @@
 #include "Shader.h"
 #include "Window.h"
 #include "Camera.h"
+#include "Texture.h"
 
 const float toRadians = 3.14159265f / 180.0f;
 
@@ -21,6 +24,9 @@ Window mainWindow;
 std::vector<Mesh*> meshList;
 std::vector<Shader*> shaderList;
 Camera camera;
+
+Texture brickTexture;
+Texture dirtTexture;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastTime = 0.0f;
@@ -48,14 +54,15 @@ void createObjects()
 
 	GLfloat vertices[] =
 	{
-		-1.0f, -1.0f, 0.0f, // left down
-		0.0f, -1.0f, 1.0f, // depth
-		1.0f, -1.0f, 0.0f, // right down
-		0.0f, 1.0f, 0.0f // up
+		// x     y     z     u      v
+		-1.0f, -1.0f, 0.0f, 0.0f, 0.0f,// left down
+		0.0f, -1.0f, 1.0f, 0.5f, 0.0f,// depth
+		1.0f, -1.0f, 0.0f, 1.0f, 0.0f,// right down
+		0.0f, 1.0f, 0.0f, 0.5f, 1.0f// up
 	};
 
 	Mesh* obj1 = new Mesh();
-	obj1->createMesh(vertices, indices, 12 ,12);
+	obj1->createMesh(vertices, indices, 20, 12);
 	meshList.push_back(obj1);
 }
 
@@ -75,6 +82,12 @@ int main()
 	createShaders();
 
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
+
+	brickTexture = Texture("Textures/brick.png");
+	brickTexture.loadTexture();
+	
+	dirtTexture = Texture("Textures/dirt.png");
+	dirtTexture.loadTexture();
 
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;
 
@@ -120,6 +133,7 @@ int main()
 			glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 
+			brickTexture.useTexture();
 			meshList[0]->renderMesh();
 
 		glUseProgram(0);

@@ -3,6 +3,14 @@
 
 Camera::Camera()
 {
+	position = glm::vec3(0,0,0);
+	worldUp = glm::vec3(0, 0, 0);
+	yaw = 0;
+	pitch = 0;
+	front = glm::vec3(0.0f, 0.0f, -1.0f);
+
+	movementSpeed = 0;
+	turnSpeed = 0;
 }
 
 Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch,
@@ -43,6 +51,12 @@ void Camera::keyControl(bool* keys, GLfloat deltaTime)
 
 void Camera::mouseControl(GLfloat xChange, GLfloat yChange)
 {
+	if (xChange > 100 || yChange > 100) {
+		xChange = 0;
+		yChange = 0;
+	}
+
+
 	xChange *= turnSpeed;
 	yChange *= turnSpeed;
 
@@ -67,6 +81,7 @@ glm::mat4 Camera::calculateViewMatrix()
 
 void Camera::update()
 {
+	//printf("front x = %f, front y = %f, front z = %f, yaw = %f \n", front.x, front.y, front.z, yaw);
 	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	front.y = sin(glm::radians(pitch));
 	front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
