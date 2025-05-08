@@ -8,6 +8,11 @@ Shader::Shader()
 	uniformAmbientColor = 0;
 	uniformAmbientIntensity = 0;
 	uniformView = 0;
+	uniformDiffuseDirection = 0;
+	uniformDiffuseIntensity = 0;
+	uniformEyePosition = 0;
+	uniformSpecularIntensity = 0;
+	uniformShininess = 0;
 }
 
 void Shader::createFromString(const char* vertexCode, const char* fragmentCode)
@@ -61,6 +66,11 @@ GLuint Shader::getViewLocation()
 	return uniformView;
 }
 
+GLuint Shader::getEyePositionLocation()
+{
+	return uniformEyePosition;
+}
+
 GLuint Shader::getAmbientIntensityLocation()
 {
 	return uniformAmbientIntensity;
@@ -69,6 +79,26 @@ GLuint Shader::getAmbientIntensityLocation()
 GLuint Shader::getAmbientColorLocation()
 {
 	return uniformAmbientColor;
+}
+
+GLuint Shader::getDiffuseIntensityLocation()
+{
+	return uniformDiffuseIntensity;
+}
+
+GLuint Shader::getDiffuseDirectionLocation()
+{
+	return uniformDiffuseDirection;
+}
+
+GLuint Shader::getSpecularIntensityLocation()
+{
+	return uniformSpecularIntensity;
+}
+
+GLuint Shader::getShininessLocation()
+{
+	return uniformShininess;
 }
 
 void Shader::useShader()
@@ -128,8 +158,15 @@ void Shader::compileShader(const char* vertexCode, const char* fragmentCode)
 	uniformProjection = glGetUniformLocation(shaderId, "projection");
 	uniformModel = glGetUniformLocation(shaderId, "model");
 	uniformView = glGetUniformLocation(shaderId, "view");
+
+	uniformEyePosition = glGetUniformLocation(shaderId, "eyePosition");
+
 	uniformAmbientColor = glGetUniformLocation(shaderId, "directionalLight.color");
 	uniformAmbientIntensity = glGetUniformLocation(shaderId, "directionalLight.ambientIntensity");
+	uniformDiffuseIntensity = glGetUniformLocation(shaderId, "directionalLight.diffuseIntensity");
+	uniformDiffuseDirection = glGetUniformLocation(shaderId, "directionalLight.direction");
+	uniformSpecularIntensity = glGetUniformLocation(shaderId, "material.specularIntensity");
+	uniformShininess = glGetUniformLocation(shaderId, "material.shininess");
 }
 
 void Shader::addShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
