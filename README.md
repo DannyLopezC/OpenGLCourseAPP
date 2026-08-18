@@ -12,13 +12,13 @@ The project was built as part of my transition toward **graphics
 programming and low-level simulation systems**, implementing everything
 from rendering to UI manually using OpenGL.
 
-------------------------------------------------------------------------
+---
 
 # Preview
 
 ![Rocket Flight Simulator](demo_video.gif)
 
-------------------------------------------------------------------------
+---
 
 # Features
 
@@ -26,18 +26,18 @@ from rendering to UI manually using OpenGL.
 
 The rocket's flight is simulated using configurable physical parameters:
 
--   Gravity
--   Thrust
--   Burn time
--   Launch angle
--   Mass
--   Restitution (bounce on ground)
--   Drag
+- Gravity
+- Thrust
+- Burn time
+- Launch angle
+- Mass
+- Restitution (bounce on ground)
+- Drag
 
 This allows experimentation with how different values influence the
 rocket's trajectory.
 
-------------------------------------------------------------------------
+---
 
 ## Interactive Parameter Tuning
 
@@ -46,14 +46,14 @@ allowing **live experimentation** with the simulation.
 
 Editable values include:
 
--   Gravity (m/s²)
--   Angle (degrees)
--   Mass (kg)
--   Thrust (N)
--   Burn Time (seconds)
--   Restitution coefficient
+- Gravity (m/s²)
+- Angle (degrees)
+- Mass (kg)
+- Thrust (N)
+- Burn Time (seconds)
+- Restitution coefficient
 
-------------------------------------------------------------------------
+---
 
 ## Trajectory Visualization
 
@@ -61,55 +61,55 @@ The simulator visualizes the rocket's path in real time using a **trail
 renderer**, allowing clear observation of the flight arc and landing
 point.
 
-------------------------------------------------------------------------
+---
 
 ## Physics Debug Visualization
 
 To help understand the motion, the simulator includes visual debugging
 tools:
 
--   Velocity vector arrow
--   Acceleration vector arrow
+- Velocity vector arrow
+- Acceleration vector arrow
 
 These update dynamically during flight.
 
-------------------------------------------------------------------------
+---
 
 ## Flight Metrics
 
 The simulator tracks and displays important flight data:
 
--   Maximum height
--   Horizontal range
--   Flight time
+- Maximum height
+- Horizontal range
+- Flight time
 
-------------------------------------------------------------------------
+---
 
 ## Custom UI System
 
 A lightweight UI framework built directly in OpenGL includes:
 
--   Input fields
--   Buttons
--   Text rendering
--   Parameter editing
+- Input fields
+- Buttons
+- Text rendering
+- Parameter editing
 
 This was implemented without external UI libraries to better understand
 rendering and input pipelines.
 
-------------------------------------------------------------------------
+---
 
 # Tech Stack
 
--   C++17
--   OpenGL 3.3+
--   GLFW (windowing and input)
--   GLM (math library)
--   Custom shaders
--   STB Image
--   FreeType (text rendering)
+- C++17
+- OpenGL 3.3+
+- GLFW (windowing and input)
+- GLM (math library)
+- Custom shaders
+- STB Image
+- FreeType (text rendering)
 
-------------------------------------------------------------------------
+---
 
 # Project Architecture
 
@@ -142,54 +142,54 @@ responsibilities and keep the project scalable.
 
 Handles the application lifecycle and user interaction:
 
--   Window initialization
--   UI input handling
--   Button and field management
--   Simulation control
+- Window initialization
+- UI input handling
+- Button and field management
+- Simulation control
 
 ## Graphics
 
 Responsible for rendering systems:
 
--   Mesh and shader management
--   Textures and materials
--   Trail visualization
--   Debug arrows
--   Primitive generation
--   Text rendering
+- Mesh and shader management
+- Textures and materials
+- Trail visualization
+- Debug arrows
+- Primitive generation
+- Text rendering
 
 ## Simulation
 
 Contains the physics logic:
 
--   Rocket motion
--   Thrust application
--   Gravity
--   Collision with the floor
--   Simulation update loop
+- Rocket motion
+- Thrust application
+- Gravity
+- Collision with the floor
+- Simulation update loop
 
-------------------------------------------------------------------------
+---
 
 # What I Learned
 
 Building this project helped me practice several important areas related
 to **graphics and simulation programming**:
 
--   Structuring a medium-sized C++ OpenGL project
--   Separating rendering systems from simulation logic
--   Implementing a small UI framework from scratch
--   Visualizing physics data using debug tools
--   Working with transformations and vectors
--   Iterating on architecture as features grow
+- Structuring a medium-sized C++ OpenGL project
+- Separating rendering systems from simulation logic
+- Implementing a small UI framework from scratch
+- Visualizing physics data using debug tools
+- Working with transformations and vectors
+- Iterating on architecture as features grow
 
-------------------------------------------------------------------------
+---
 
 # How to Run
 
 ### 1. Clone the repository
 
-    git clone https://github.com/DannyLopezC/PhysicsSimulator.git
-    cd PhysicsSimulator
+    git clone https://github.com/DannyLopezC/Rocket-Flight-Simulator.git
+    cd Rocket-Flight-Simulator
 
 ### 2. Open the Visual Studio solution
 
@@ -203,26 +203,26 @@ Compile the solution using the default configuration.
 
 Launch the executable from Visual Studio.
 
-------------------------------------------------------------------------
+---
 
 # Controls
 
--   Edit simulation parameters through the input fields
--   Press **RESET** to restart the simulation with the current values
+- Edit simulation parameters through the input fields
+- Press **RESET** to restart the simulation with the current values
 
-------------------------------------------------------------------------
+---
 
 # Future Improvements
 
 Possible extensions for the simulator:
 
--   Camera zoom and pan
--   Real-time graphs (height vs time)
--   Multiple rocket types
--   Improved UI layout and styling
--   Exporting simulation data
+- Camera zoom and pan
+- Real-time graphs (height vs time)
+- Multiple rocket types
+- Improved UI layout and styling
+- Exporting simulation data
 
-------------------------------------------------------------------------
+---
 
 # Author
 
